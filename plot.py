@@ -31,7 +31,8 @@ with open(args.file, 'w') as f:
       diff = bet['diff']
       profit += diff
 
-      f.write('%d %d\n' % (bet['num'], profit))
+      f.write('%d %.8f\n' % (bet['num'], profit / 1e8))
+      f.flush()
 
     sys.stdout.write('\r%d / %d = %.4f%%' % (offset, bets,
                                              offset * 100.0 / bets))

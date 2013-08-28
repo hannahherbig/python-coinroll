@@ -4,10 +4,10 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('user')
 parser.add_argument('password')
-parser.add_argument('target', type=int, default=0, help='profit target')
+parser.add_argument('--target', type=int, default=0, help='target profit')
 args = parser.parse_args()
 
-MULTIPLIER = 2
+MULTIPLIER = 2.25
 LESSTHAN = int(0.99 / MULTIPLIER * 65536)
 
 def color(n):
@@ -33,6 +33,3 @@ while r['balance'] > amount and r['profit'] < args.target:
     amount = start
   else:
     amount *= 2
-
-    if amount > r['balance']:
-      amount = start
