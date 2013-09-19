@@ -25,13 +25,13 @@ with open(args.file, 'w') as f:
       offset = bets
 
     r = api.bets(offset)
-    bets = r['count']
+    bets = r.count
 
-    for bet in reversed(r['bets']):
-      diff = bet['diff']
+    for bet in reversed(r.bets):
+      diff = bet.diff
       profit += diff
 
-      f.write('%d %.8f\n' % (bet['num'], profit / 1e8))
+      f.write('%d %.8f\n' % (bet.num, profit))
       f.flush()
 
     sys.stdout.write('\r%d / %d = %.4f%%' % (offset, bets,

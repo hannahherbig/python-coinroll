@@ -25,12 +25,12 @@ while offset < bets:
     offset = bets
 
   r = api.bets(offset)
-  bets = r['count']
+  bets = r.count
 
-  for bet in reversed(r['bets']):
-    diff = bet['diff']
+  for bet in reversed(r.bets):
+    diff = bet.diff
     profit += diff
 
-    print('%08d | \033[%dm%5d\033[m < %5d | \033[%dm%+09d\033[m | '
-          '\033[%dm%+09d\033[m' % (bet['amount'], color(diff), bet['lucky'],
-            bet['lessthan'], color(diff), diff, color(profit), profit))
+    print('%.8f | \033[%dm%5d\033[m < %5d | \033[%dm%+.8f\033[m | '
+          '\033[%dm%+.8f\033[m' % (bet.amount, color(diff), bet.lucky,
+            bet.lessthan, color(diff), diff, color(profit), profit))
