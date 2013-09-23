@@ -8,7 +8,7 @@ def color(n):
 parser = argparse.ArgumentParser()
 parser.add_argument('user')
 parser.add_argument('password')
-parser.add_argument('sequence', type=int, nargs='*')
+parser.add_argument('sequence', type=int, nargs='+')
 parser.add_argument('-b', '--base', type=Decimal, default=None)
 parser.add_argument('-x', '--max', type=Decimal, default=Decimal('Infinity'))
 
@@ -33,7 +33,7 @@ try:
     
     amount = size * base
     
-    if amount > r.balance or amount > args.max:
+    if r.balance <= amount or args.max < amount:
       break
     
     r = bot.bet(lessthan, amount)

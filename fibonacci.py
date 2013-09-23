@@ -30,7 +30,7 @@ try:
   while True:
     amount = seq[index] * base
     
-    if amount > r.balance > args.target or amount > args.max:
+    if r.balance < amount or r.balance >= args.target or args.max < amount:
       break
     
     r = bot.bet(lessthan, amount)
