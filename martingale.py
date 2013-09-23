@@ -5,6 +5,9 @@ from decimal import Decimal
 def payout(x):
   return int(0.99 / float(x) * 65536)
 
+def color(n):
+  return 32 if n >= 0 else 31
+
 parser = argparse.ArgumentParser()
 parser.add_argument('user')
 parser.add_argument('password')
@@ -19,9 +22,6 @@ parser.add_argument('-i', '--interval', type=int, default=1)
 parser.add_argument('-m', '--multiplier', type=int, default=2)
 
 args = parser.parse_args()
-
-def color(n):
-  return 32 if n >= 0 else 31
 
 bot = coinroll.Coinroll(args.user, args.password)
 r = bot.stats()
