@@ -1,9 +1,7 @@
 import coinroll
+from util import color
 import argparse
 from decimal import Decimal
-
-def color(n):
-  return 32 if n >= 0 else 31
 
 parser = argparse.ArgumentParser()
 parser.add_argument('user')
@@ -38,9 +36,8 @@ try:
     
     r = bot.bet(lessthan, amount)
 
-    print('%.8f | %.8f | \033[%dm%5d\033[m < %5d | \033[%dm%+.8f\033[m | '
-          '\033[%dm%+.8f\033[m' % (r.balance, r.amount, color(r.diff), r.lucky,
-            r.lessthan, color(r.diff), r.diff, color(r.profit), r.profit))
+    print('%.8f | %.8f | %s < %5d | %s | %s' % (r.balance, r.amount,
+      color(r.diff, r.lucky, '5d'), r.lessthan, color(r.diff), color(r.profit)))
 
     if r.win:
       seq.pop(0)

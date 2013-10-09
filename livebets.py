@@ -1,10 +1,8 @@
 import coinroll
+from util import color
 
 from decimal import Decimal
 from collections import defaultdict
-
-def color(n):
-  return 32 if n >= 0 else 31
 
 profits = defaultdict(Decimal)
 
@@ -19,7 +17,4 @@ while True:
     
       profits[bet.user] += bet.diff
 
-      print('%s | %s | %.8f | \033[%dm%5d\033[m < %5d | \033[%dm%+.8f\033[m | '
-            '\033[%dm%+.8f\033[m' % (bet.user, bet.id, bet.amount,
-              color(bet.diff), bet.lucky, bet.lessthan, color(bet.diff),
-              bet.diff, color(profits[bet.user]), profits[bet.user]))
+      print('%s | %s | %.8f | %s < %5d | %s | %s' % (bet.user, bet.id, bet.amount, color(bet.diff, bet.lucky, '5d'), bet.lessthan, color(bet.diff), color(profits[bet.user])))

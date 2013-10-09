@@ -9,9 +9,6 @@ parser.add_argument('password')
 parser.add_argument('file')
 args = parser.parse_args()
 
-def color(n):
-  return 32 if n >= 0 else 31
-
 api = coinroll.Coinroll(args.user, args.password)
 bets = float('inf')
 offset = 0
