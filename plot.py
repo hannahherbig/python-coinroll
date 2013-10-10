@@ -29,11 +29,11 @@ try:
         diff = bet.diff
         profit += diff
 
-        f.write('%d %.8f\n' % (bet.num, profit))
+        f.write('{:d} {:.8f}\n'.format(bet.num, profit))
         f.flush()
 
-      sys.stdout.write('\r%d / %d = %.4f%%' % (offset, bets,
-                                               offset * 100.0 / bets))
+      sys.stdout.write('\r{:d} / {:d} = {:.2%}'.format(offset, bets,
+        offset / bets))
       sys.stdout.flush()
 
 except KeyboardInterrupt:

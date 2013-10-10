@@ -29,7 +29,7 @@ try:
       diff = bet.diff
       profit += diff
 
-      print('%6d | %.8f | %s < %5d | %s | %s' % (bet.num, bet.amount,
+      print('{:6d} | {:.8f} | {} < {:5d} | {} | {}'.format(bet.num, bet.amount,
         color(diff, bet.lucky, '5d'), bet.lessthan, color(diff), color(profit)))
 
 except KeyboardInterrupt:

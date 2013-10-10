@@ -32,8 +32,9 @@ try:
   while amount <= r.balance < args.target and amount <= args.max:
     r = bot.bet(args.lessthan, amount)
 
-    print('%.8f | %.8f | %s < %5d | %s | %s | %s' % (r.balance, r.amount,
-      color(r.diff, r.lucky, '5d'), r.lessthan, color(r.diff), color(r.profit)))
+    print('{:.8f} | {:.8f} | {} < {:5d} | {} | {} | {}'.format(r.balance,
+      r.amount, color(r.diff, r.lucky, '5d'), r.lessthan, color(r.diff),
+      color(r.profit)))
 
     if r.win:
       amount = start

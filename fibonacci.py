@@ -34,9 +34,9 @@ try:
     
     r = bot.bet(lessthan, amount)
 
-    print('%.8f | %.8f | %s < %5d | %s | %s | %s' % (r.balance, r.amount,
-            color(r.diff, r.lucky, '5d'), r.lessthan, color(r.diff),
-            color(r.profit), color(r.balance - this)))
+    print('{:.8f} | {:.8f} | {} < {:5d} | {} | {} | {}'.format(r.balance,
+      r.amount, color(r.diff, r.lucky, '5d'), r.lessthan, color(r.diff),
+      color(r.profit), color(r.balance - this)))
 
     if r.win:
       index -= 2
