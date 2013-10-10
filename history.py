@@ -13,20 +13,24 @@ bets = float('inf')
 offset = 0
 profit = 0
 
-print('amount     | lucky < less  | diff        | profit')
+print('number | amount     | lucky < less  | diff        | profit')
 
-while offset < bets:
-  offset += 5
+try:
+  while offset < bets:
+    offset += 5
 
-  if offset > bets:
-    offset = bets
+    if offset > bets:
+      offset = bets
 
-  r = api.bets(offset)
-  bets = r.count
+    r = api.bets(offset)
+    bets = r.count
 
-  for bet in reversed(r.bets):
-    diff = bet.diff
-    profit += diff
+    for bet in reversed(r.bets):
+      diff = bet.diff
+      profit += diff
 
-    print('%.8f | %s < %5d | %s | %s' % (bet.amount,
-      color(diff, bet.lucky, '5d'), bet.lessthan, color(diff), color(profit)))
+      print('%6d | %.8f | %s < %5d | %s | %s' % (bet.num, bet.amount,
+        color(diff, bet.lucky, '5d'), bet.lessthan, color(diff), color(profit)))
+
+except KeyboardInterrupt:
+  pass

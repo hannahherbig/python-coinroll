@@ -14,25 +14,30 @@ bets = float('inf')
 offset = 0
 profit = 0
 
-with open(args.file, 'w') as f:
-  while offset < bets:
-    offset += 5
+try:
+  with open(args.file, 'w') as f:
+    while offset < bets:
+      offset += 5
 
-    if offset > bets:
-      offset = bets
+      if offset > bets:
+        offset = bets
 
-    r = api.bets(offset)
-    bets = r.count
+      r = api.bets(offset)
+      bets = r.count
 
-    for bet in reversed(r.bets):
-      diff = bet.diff
-      profit += diff
+      for bet in reversed(r.bets):
+        diff = bet.diff
+        profit += diff
 
-      f.write('%d %.8f\n' % (bet.num, profit))
-      f.flush()
+        f.write('%d %.8f\n' % (bet.num, profit))
+        f.flush()
 
-    sys.stdout.write('\r%d / %d = %.4f%%' % (offset, bets,
-                                             offset * 100.0 / bets))
-    sys.stdout.flush()
+      sys.stdout.write('\r%d / %d = %.4f%%' % (offset, bets,
+                                               offset * 100.0 / bets))
+      sys.stdout.flush()
 
-print()
+except KeyboardInterrupt:
+  pass
+
+finally:
+  print()
