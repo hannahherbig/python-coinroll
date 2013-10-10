@@ -23,7 +23,7 @@ seq = args.sequence
 this = r.balance
 index = 0
 
-print 'balance    | amount     | lucky < less  | diff        | profit'
+print('balance    | amount     | lucky < less  | diff        | profit')
 
 try:
   while True:

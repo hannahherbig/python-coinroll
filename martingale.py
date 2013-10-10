@@ -26,7 +26,7 @@ amount = start
 
 loses = 0
 
-print 'balance    | amount     | lucky < less  | diff        | profit'
+print('balance    | amount     | lucky < less  | diff        | profit')
 
 try:
   while amount <= r.balance < args.target and amount <= args.max:

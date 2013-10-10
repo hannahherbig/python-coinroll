@@ -1,7 +1,7 @@
 # Wrapper for coinroll.it's API
 
 import requests
-import urlparse
+from urllib import parse
 from decimal import Decimal
 from collections import namedtuple
 
@@ -55,7 +55,7 @@ Leader = namedtuple('Leader', 'user bets profit volume active')
 
 # helper method
 def request(path, **params):
-  res = requests.post(urlparse.urljoin(BASE_URI, path), data=params)
+  res = requests.post(parse.urljoin(BASE_URI, path), data=params)
   data = res.json()
 
   if data['result']:

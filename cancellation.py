@@ -20,7 +20,7 @@ game = coinroll.gameinfo(lessthan)
 base = args.base or game.minbet
 seq = args.sequence
 
-print 'balance    | amount     | lucky < less  | diff        | profit'
+print('balance    | amount     | lucky < less  | diff        | profit')
 
 try:
   while len(seq) > 0:

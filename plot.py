@@ -35,4 +35,4 @@ with open(args.file, 'w') as f:
                                              offset * 100.0 / bets))
     sys.stdout.flush()
 
-print
+print()

@@ -13,7 +13,7 @@ bets = float('inf')
 offset = 0
 profit = 0
 
-print 'amount     | lucky < less  | diff        | profit'
+print('amount     | lucky < less  | diff        | profit')
 
 while offset < bets:
   offset += 5
