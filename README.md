@@ -12,5 +12,3 @@ plot.py will write your bet history to a file that can be parsed by gnuplot,
 so you can get a pretty graph of your bet history.
 
 You can run the scripts without any arguments for a usage message.
-
-Please send tips to 1DvkfNva4LpTXJ7udThCQpQAuc9bu7V6XL
